@@ -136,7 +136,11 @@ PlayerSettings:
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
   bundleVersion: 0.1
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 11400000, guid: c677e5c4eb85b7849a8da406775c299d, type: 2}
+  - {fileID: -296810747134370784, guid: 412273c9681809a4db2a045adbfeee32, type: 2}
+  - {fileID: 11400000, guid: a1437e57d3f1e2d47ad1e13d89a4049b, type: 2}
+  - {fileID: 1552747339614460553, guid: 379f64b1ac2dffd4b9dddeb8ec366cf9, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -770,11 +774,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: MRTK3TouchableNonNativeKeyboard
   metroPackageVersion: 
-  metroCertificatePath: 
+  metroCertificatePath: Assets/WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 00c5c0355b7adb01
   metroApplicationDescription: MRTK3TouchableNonNativeKeyboard
   wsaImages: {}
   metroTileShortName: 
@@ -791,9 +795,9 @@ PlayerSettings:
   metroSplashScreenUseBackgroundColor: 0
   platformCapabilities:
     WindowsStoreApps:
+      GazeInput: True
       SpatialPerception: True
       WebCam: True
-      GazeInput: True
   metroTargetDeviceFamilies: {}
   metroFTAName: 
   metroFTAFileTypes: []

@@ -1,4 +1,5 @@
-﻿using Microsoft.MixedReality.GraphicsTools;
+﻿using System;
+using Microsoft.MixedReality.GraphicsTools;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,12 +7,15 @@ namespace MRTKExtensions.Keyboard
 {
     public class NonNativeKeyboardTouchAdapter : MonoBehaviour
     {
-        private void Start()
+        private void Awake()
         {
             var defaultAudioComponent = GetComponent<AudioSource>();
             defaultAudioComponent.playOnAwake = false;
             defaultAudioComponent.spatialize = false;
-            
+        }
+
+        private void Start()
+        {
             var buttons = GetComponentsInChildren<Button>(true);
             foreach (var button in buttons)
             {
