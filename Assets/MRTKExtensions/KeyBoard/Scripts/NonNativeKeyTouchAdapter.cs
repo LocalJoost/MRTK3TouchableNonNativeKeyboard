@@ -24,6 +24,7 @@ namespace MRTKExtensions.Keyboard
         private Vector3 animatedPosition;
         private BoxCollider buttonCollider;
         private Vector3 buttonColliderDefaultCenter;
+        private Color defaultImageColor;
 
         private void Awake()
         {
@@ -63,7 +64,7 @@ namespace MRTKExtensions.Keyboard
             buttonCollider.center = buttonColliderDefaultCenter;
             
             image = GetComponent<Graphic>();
-            var defaultColor = image.color;
+            defaultImageColor = image.color;
             var button = GetComponent<Button>();
             
             interactable = gameObject.EnsureComponent<StatefulInteractable>();
@@ -92,7 +93,7 @@ namespace MRTKExtensions.Keyboard
             
             interactable.lastHoverExited.AddListener(hoverArgs =>
             {
-                SetColorOnHoverPoke(hoverArgs.interactorObject, defaultColor);
+                SetColorOnHoverPoke(hoverArgs.interactorObject, defaultImageColor);
             });
         }
 
@@ -101,6 +102,16 @@ namespace MRTKExtensions.Keyboard
             if (interaction is PokeInteractor)
             {
                 image.color = color;
+            }
+        }
+        
+        private void Update()
+        {
+            // fallback for if the user very rapidly moves their finger over the keyboard and
+            // interactable.lastHoverExited does not get fired (or too early)
+            if (interactable.HoveringPokeInteractors.Count == 0 && image.color != defaultImageColor)
+            {
+                image.color = defaultImageColor;
             }
         }
 
